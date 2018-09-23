@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% from 'form_helper.html' import render_field %}
+{% block style %}{% endblock %}
+
+<!-- :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
+
+{% block content %}
+    <div class="columns mt-3">
+        <div class="Box one-half centered mt-3 mb-5">
+            <div class="Box-header">
+                <small> <a href="/">Home</a> ... Форма добавления комментариев</small>
+            </div>
+            <div class="Box-body">
+                <form action="{{ url_for('comment.addComment_req') }}" method="POST">
+                    {{ data.form.csrf_token }}
+                    {{ render_field(data.form.first_name, class="form-control", autofocus=true) }}
+                    {{ render_field(data.form.last_name, class="form-control") }}
+                    {{ render_field(data.form.middle_name, class="form-control") }}
+                    {{ render_field(data.form.email, class="form-control") }}
+                    {{ render_field(data.form.phone, placeholder="+375 33 6770099", class="form-control") }}
+                    {{ render_field(data.form.region, class="form-select") }}
+                    {{ render_field(data.form.city, class="form-select") }}
+                    {{ render_field(data.form.comment, rows=10, cols=60, class="form-control") }}
+					<button class="btn btn-sm btn-primary" type="submit">Добавить комментарий</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

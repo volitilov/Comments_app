@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block style %}{% endblock %}
+{% block sripts %}{% endblock %}
+
+<!-- :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
+
+{% block content %}
+    <div class="columns mt-3">
+        <div class="Box">
+            <div class="Box-header">
+               <small><a href="/">Home</a> ... Статистика</small>
+            </div>
+            <div class="Box-body">
+                <table border="1">
+                    <tr>
+                        <th>Регион</th>
+                        <th>Кол-во коммент.</th>
+                    </tr>
+                    {% for region in data.regions %}
+                        <tr>
+                            <td><a href="{{ url_for('comment.statRegion_page', id=region['region'].id) }}">{{ region['region'].title }}</a></td>
+                            <td>{{ region['comment_count'] }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+                <br>
+            </div>
+        </div>
+    </div>
+{% endblock %}

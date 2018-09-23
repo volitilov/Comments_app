@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block style %}{% endblock %}
+{% block sripts %}{% endblock %}
+
+<!-- :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
+
+{% block content %}
+    <div class="columns mt-3">
+        <div class="Box">
+            <div class="Box-header">
+               <small><a href="/">Home</a> ... Таблица комментариев</small>
+            </div>
+            <div class="Box-body">
+                <table border="1">
+                    <tr>
+                        <th>Автор</th>
+                        <th>Город</th>
+                        <th>Почта</th>
+                        <th>Комментарий</th>
+                        <th>Управление</th>
+                    </tr>
+                    {% for comment in data.comments %}
+                        <tr id="{{ comment.id }}">
+                            <td>{{ comment.author.last_name }}</td>
+                            <td>{{ comment.author.city.title }}</td>
+                            <td>{{ comment.author.email }}</td>
+                            <td>{{ comment.body }}</td>
+                            <td><a class="delComment_btn">Удалить</a></td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

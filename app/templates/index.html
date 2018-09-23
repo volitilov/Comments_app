@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block style %}{% endblock %}
+{% block sripts %}{% endblock %}
+
+<!-- :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
+
+{% block content %}
+    <div class="Box mt-3 mb-5">
+        <div class="Box-header">
+            <small>Домашняя страница</small>
+        </div>
+        <div class="Box-row">
+            <a href="{{ url_for('comment.addComment_page') }}">Добавить комментарий</a>
+        </div>
+        <div class="Box-row">
+            <a href="{{ url_for('comment.viewComments_page') }}">Посмотреть комментарии</a>
+        </div>
+        <div class="Box-row">
+            <a href="{{ url_for('comment.stat_page') }}">Посмотреть статистику</a>
+        </div>
+    </div>
+{% endblock %}

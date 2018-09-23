@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.png') }}" type="images/png">
+		<link rel="icon" href="{{ url_for('static', filename='img/favicon.png') }}" type="images/png">
+
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/helpers/_normalize.css') }}" />
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/helpers/_primer.css') }}">
+		
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
+		<!-- components -->
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/components/flash.css') }}" />
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/components/table.css') }}" />
+
+
+		<title>
+			{% if data %}
+				{{ data.page_title }}
+			{% else %}
+				Тестовый приложение
+			{% endif %}
+		</title>
+		{% block style %}{% endblock %}
+	</head>
+	<body class="anim-fade-in">
+		<div class="anim-grow-x bg-green"></div>
+		
+		<div class="container main">
+			{% with messages = get_flashed_messages(with_categories=true) %} 
+				{% if messages %}
+					<ul class="flash-messages">
+						{% for category, message in messages %}
+							<li class="flash flash-{{ category }}">
+								{{ message|safe }}
+								<button class="close closeFlash_btn">&times;</button>
+							</li>
+						{% endfor %}
+					</ul>
+				{% endif %}
+			{% endwith %}
+			{% block content %}{% endblock %}
+		</div>
+
+		<!-- Optional JavaScript -->
+		<script src="{{ url_for('static', filename='js/helpers/jquery.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/scripts/close_flash.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/scripts/change_select.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/scripts/validation_form.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/scripts/remove_comment.js') }}"></script>
+	</body>
+</html>

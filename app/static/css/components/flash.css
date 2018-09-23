@@ -1,0 +1,16 @@
+.flash-messages {
+  margin-bottom: 0px;
+  list-style: none;
+}
+.flash-messages .close {
+  background-color: transparent;
+  border: none;
+  font-size: 25px;
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+  top: 7px;
+}
+.flash-messages .flash {
+  margin-top: 15px;
+}

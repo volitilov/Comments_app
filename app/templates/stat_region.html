@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block style %}{% endblock %}
+{% block sripts %}{% endblock %}
+
+<!-- :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
+
+{% block content %}
+    <div class="columns mt-3">
+        <div class="Box">
+            <div class="Box-header">
+               <small><a href="/">Home</a> ... Колличество комментариев по региону</small>
+            </div>
+            <div class="Box-body">
+                <br>
+                <h4>Результаты показанны для региона: {{ data.region.title }}</h4>
+                <br>
+                <table border="1">
+                    <tr>
+                        <th>Город</th>
+                        <th>Кол-во коммент.</th>
+                    </tr>
+                    {% for city in data.cities %}
+                        <tr>
+                            <td>{{ city['city'].title }}</td>
+                            <td>{{ city['comment_count'] }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+                <br>
+            </div>
+        </div>
+    </div>
+{% endblock %}
